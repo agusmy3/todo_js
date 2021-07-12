@@ -9,8 +9,19 @@
             Keterangan <textarea name="keterangan" id="keterangan"></textarea>
             <input type="submit" value="Tambah" name="tambah">
         </form>
-        <div id="baca">
+        <div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tugas</th>
+                        <th>Tanggal</th>
+                        <th>Keterangan</th>
+                    </tr>
+                </thead>
+                <tbody id="baca">
 
+                </tbody>
+            </table>
         </div>
         <script src="localForage/dist/localforage.js"></script>
         <script>console.log('localforage is: ', localforage);</script>
