@@ -2,7 +2,9 @@ let num_data_uncomplite = 0;
 let num_data_complite = 0;
 let arr_complite_history = [];
 let arr_uncomplite_history = [];
+let arr_data = [];
 tampil();
+buat_chart();
 
 document.addEventListener("DOMContentLoaded", function () { 
     const submitForm = document.getElementById("form_todo");
@@ -37,6 +39,7 @@ function tambah(){
 }
 
 function tampil(){
+    hitung_status();
     localforage.getItem('todo_uncomplite').then(function(value) {
         arr_uncomplite_history = value;
         num_data_uncomplite = value.length;
@@ -204,5 +207,26 @@ function selisih_tgl_txt(selisih){
     return selisih;
 }
 
-console.log(new Date());
+function hitung_status(){
+    localforage.getItem('todo_complite').then(function(value) {
+        let terlambat=0,tepat_waktu=0,lebih_awal=0;
+        for(let i = 0; i < value.length; i++){
+            if(value[i][4] == "Terlambat"){
+                terlambat++;
+            }else if(value[i][4] == "Tepat Waktu"){
+                tepat_waktu++;
+            }else if(value[i][4] == "Lebih Awal"){
+                lebih_awal++;
+            }
+        }
+
+        arr_data[0] = terlambat;
+        arr_data[1] = tepat_waktu;
+        arr_data[2] = lebih_awal;
+        update_chart(myChart);
+    }).catch(function(err) {
+        console.log(err);
+    });
+} 
+
 setInterval(showTime, 500);
