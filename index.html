@@ -1,46 +1,92 @@
 <html>
     <head>
-        <title></title>
+        <title>Todo List</title>
+        <!-- Bootstrap CSS -->
+        <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
     </head>
     <body>
-        <form action="#" id="form_todo">
-            Tugas <input type="text" name="tugas" id="tugas">
-            Tanggal <input type="text" name="tanggal" id="tanggal">
-            Keterangan <textarea name="keterangan" id="keterangan"></textarea>
-            <input type="submit" value="Tambah" name="tambah">
-        </form>
-        <div>
-            <h3>Belum Selesai</h3>
-            <table border="1">
-                <thead>
-                    <tr>
-                        <th>Tugas</th>
-                        <th>Tanggal</th>
-                        <th>Keterangan</th>
-                        <th>Aksi</th>
-                    </tr>
-                </thead>
-                <tbody id="read_uncomplite">
+    
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col">
+                    Waktu : <span id="clock"></span>
+                </div>
+            </div>
 
-                </tbody>
-            </table>
-        </div>
-        <div>
-            <h3>Sudah Selesai</h3>
-            <table border="1">
-                <thead>
-                    <tr>
-                        <th>Tugas</th>
-                        <th>Tanggal</th>
-                        <th>Keterangan</th>
-                        <th>Aksi</th>
-                    </tr>
-                </thead>
-                <tbody id="read_complite">
+            <div class="row mb-2">
+                <div class="col-4 offset-4">
+                    <div class="card">
+                        <div class="card-body">
+                        
+                            <form action="#" id="form_todo">
+                                <div class="mb-3">
+                                <label for="tugas" class="form-label">Tugas</label>
+                                <input type="text" class="form-control" id="tugas">
+                                </div>
+                                <div class="mb-3">
+                                <label for="tanggal" class="form-label">Tanggal Berakhir</label>
+                                <input type="date" class="form-control" id="tanggal">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="keterangan" class="form-label">Keterangan</label>
+                                    <textarea class="form-control" id="keterangan"></textarea>
+                                </div>
+                                <input type="submit" class="btn btn-primary" value="Tambah" name="tambah">
+                            </form>        
+        
+                        </div>
+                    </div>
+                </div>
+            </div> 
 
-                </tbody>
-            </table>
+            <div class="row">
+                <div class="col">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3>Belum Selesai</h3>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Tugas</th>
+                                        <th>Tanggal Berakhir</th>
+                                        <th>Keterangan</th>
+                                        <th>Sisa Waktu</th>
+                                        <th>Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="read_uncomplite">
+            
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3>Belum Selesai</h3>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Tugas</th>
+                                        <th>Tanggal Berakhir</th>
+                                        <th>Keterangan</th>
+                                        <th>Tanggal Terselesaikan</th>
+                                        <th>Status</th>
+                                        <th>Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="read_complite">
+            
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+        
         <script src="localForage/dist/localforage.js"></script>
         <script>console.log('localforage is: ', localforage);</script>
         <script src="javascript.js"></script>
